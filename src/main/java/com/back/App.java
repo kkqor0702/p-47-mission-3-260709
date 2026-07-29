@@ -21,7 +21,7 @@ public class App {
         System.out.println("== 명언 앱 ==");
 
         while (true) {
-            System.out.println("명령) ");
+            System.out.print("명령) ");
             String cmd = sc.nextLine();
 
             Rq rq = new Rq(cmd);

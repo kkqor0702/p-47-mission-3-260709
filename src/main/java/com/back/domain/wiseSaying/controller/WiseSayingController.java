@@ -44,6 +44,11 @@ public class WiseSayingController {
         int id = rq.getParamAsInt("id", -1);
         boolean deleted = wiseSayingService.delete(id);
 
+        // 삭제?id=" " 에서 숫자가 아닌 다른 값 넣으면 -1번 명언은 존재하지 않습니다에 대한 예외 처리
+        if (id == -1) {
+            System.out.println("잘못된 id 파라미터를 입력하였습니다.");
+        }
+
         if (!deleted) {
             System.out.printf("%d번 명언은 존재하지 않습니다.%n", id);
             return;
