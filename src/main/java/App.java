@@ -9,5 +9,19 @@ public class App {
 
     public void run() {
         System.out.println("== 명언 앱 ==");
+
+        while (true) {
+            System.out.println("명령) ");
+            String cmd = sc.nextLine();
+
+            if (cmd.equals("등록")) {
+                System.out.println("명언 : ");
+                String content = sc.nextLine();
+                System.out.println("작가 : ");
+                String author = sc.nextLine();
+            } else if (cmd.equals("종료")) {
+                break;
+            }
+        }
     }
 }
