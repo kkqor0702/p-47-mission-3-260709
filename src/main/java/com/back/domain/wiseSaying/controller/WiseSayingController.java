@@ -47,6 +47,7 @@ public class WiseSayingController {
         // 삭제?id=" " 에서 숫자가 아닌 다른 값 넣으면 -1번 명언은 존재하지 않습니다에 대한 예외 처리
         if (id == -1) {
             System.out.println("잘못된 id 파라미터를 입력하였습니다.");
+            return;
         }
 
         if (!deleted) {
@@ -62,6 +63,7 @@ public class WiseSayingController {
 
         if (id == -1) {
             System.out.println("잘못된 id 파라미터를 입력하였습니다.");
+            return;
         }
 
         WiseSaying wiseSaying = wiseSayingService.findByIdOrNull(id);
@@ -70,5 +72,12 @@ public class WiseSayingController {
             System.out.printf("%d번 명언은 존재하지 않습니다.%n", id);
             return;
         }
+
+        System.out.printf("명언(기존) : %s%n", wiseSaying.getContent());
+        String newContent = sc.nextLine();
+        System.out.printf("작가(기존) : %s%n", wiseSaying.getAuthor());
+        String newAuthor = sc.nextLine();
+
+        wiseSayingService.modify(wiseSaying, newContent, newAuthor);
     }
 }
