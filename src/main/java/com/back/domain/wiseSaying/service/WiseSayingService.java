@@ -24,6 +24,10 @@ public class WiseSayingService {
         return wiseSayingRepository.findListDesc();
     }
 
+    public WiseSaying findByIdOrNull(int id) {
+        return wiseSayingRepository.findByIdOrNull(id);
+    }
+
     public boolean delete(int id) {
         return wiseSayingRepository.delete(id);
     }
